@@ -1,3 +1,5 @@
+package test.java;
+
 import com.example.Application;
 import org.junit.jupiter.api.Test;
 
