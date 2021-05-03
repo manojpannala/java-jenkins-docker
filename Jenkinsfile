@@ -1,7 +1,12 @@
+#!/usr/bin/env groovy
+
 def gv
 
 pipeline {
     agent any
+    tools {
+        maven 'Maven'
+    }
     stages {
         stage("init") {
             steps {
@@ -13,7 +18,6 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar"
                     gv.buildJar()
                 }
             }
@@ -21,7 +25,6 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    echo "building image"
                     gv.buildImage()
                 }
             }
@@ -29,7 +32,6 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    echo "deploying"
                     gv.deployApp()
                 }
             }
