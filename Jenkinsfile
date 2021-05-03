@@ -23,10 +23,12 @@ pipeline {
                 }
             }
         }
-        stage("build image") {
+        stage("build and push image") {
             steps {
                 script {
                     buildImage 'manojpannala/java-maven-app:3.0'
+                    dockerLogin()
+                    dockerPush 'manojpannala/java-maven-app:3.0'
                 }
             }
         }
