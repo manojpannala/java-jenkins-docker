@@ -17,8 +17,7 @@ def buildImage() {
 
 def deployApp() {
     echo 'deploying the application...'
-    withKubeConfig([credentialsId: 'lke-credentials', serverUrl: 'https://aba36707-580d-4944-88e8-101811e302b8.eu-central-2.linodelke.net'])
-        sh 'kubectl create deployment nginx-deployment --image=nginx'
+
 }
 
 return this

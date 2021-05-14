@@ -38,6 +38,8 @@ pipeline {
                 script {
                     echo 'deploying docker image'
                     gv.deployApp()
+                    withKubeConfig([credentialsId: 'lke-credentials', serverUrl: 'https://aba36707-580d-4944-88e8-101811e302b8.eu-central-2.linodelke.net'])
+                        sh 'kubectl create deployment nginx-deployment --image=nginx'
                 }
             }
         }
